@@ -1,0 +1,51 @@
+ <!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Google Map</h1>
+
+<div id="googleMap" style="width:80%;height:400px;"></div>
+
+<script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(51.798230, 4.681225),
+  zoom:17,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({position: new google.maps.LatLng(51.798983, 4.683409), title: 'Azzurro - start!'});
+
+marker.setMap(map); 
+
+var coords = [
+    {lat: 51.798008, lng: 4.686561},
+    {lat: 51.796717, lng: 4.679519},
+    {lat: 51.797102, lng: 4.678827},
+    {lat: 51.797394, lng: 4.677299},
+    {lat: 51.800609, lng: 4.678570},
+    {lat: 51.800512, lng: 4.680083},
+    {lat: 51.800101, lng: 4.679997},
+    {lat: 51.799252, lng: 4.683484},
+    {lat: 51.799172, lng: 4.684498},
+    {lat: 51.799358, lng: 4.685903}
+];
+
+  var leerpark = new google.maps.Polygon({
+    paths: coords,
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',	
+    fillOpacity: 0.2
+  });
+  leerpark.setMap(map);
+
+
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuiSVPbIYEj39wLS8hmYmZGfM5MOoO98Y&callback=myMap"></script>
+
+</body>
+</html> 
